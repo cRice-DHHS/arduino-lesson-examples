@@ -1,0 +1,19 @@
+//this example is inspired by the standard servo ‘sweep’ example
+#include <Servo.h>
+Servo myservo;  // create servo object to control a servo
+int pos = 0;    // variable to store the servo position
+ 
+void setup() {
+  myservo.attach(9);  // attaches the servo on pin 9
+}
+ 
+void loop() {
+  for (pos = 0; pos <= 180; pos += 1) { // from 0 to 180 degrees
+    myservo.write(pos); // tell servo to go to 'pos'
+    delay(15); // waits 15ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 to 0
+    myservo.write(pos); // tell servo to go to 'pos'
+    delay(15);  // 15ms for the servo to reach the position
+  }
+}
